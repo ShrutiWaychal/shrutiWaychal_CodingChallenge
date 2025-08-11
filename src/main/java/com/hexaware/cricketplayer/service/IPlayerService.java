@@ -10,4 +10,5 @@ public interface IPlayerService {
     Player createPlayer(PlayerDTO dto);
     Player updatePlayer(int id, PlayerDTO dto);
     void deletePlayer(int id);
+    List<Player> getPlayersWithMoreMatchesThan(String playerName);
 }

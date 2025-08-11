@@ -17,6 +17,11 @@ public class PlayerServiceImpl  implements IPlayerService{
 	private PlayerRepository repo;
 
 	@Override
+	public List<Player> getPlayersWithMoreMatchesThan(String playerName) {
+        return repo.findPlayersWithMoreMatchesThan(playerName);
+	}
+	
+	@Override
 	public List<Player> getAllPlayers() {
 		return repo.findAll();
 	}
@@ -67,5 +72,6 @@ public class PlayerServiceImpl  implements IPlayerService{
 	    repo.deleteById(id);
 	
 
-}
+ }
+
 }

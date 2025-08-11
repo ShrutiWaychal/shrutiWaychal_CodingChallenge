@@ -45,14 +45,26 @@ public class PlayerRestController {
 		return service.getAllPlayers();
 	}
 	
+	@GetMapping("/get/{id}")
+	public ResponseEntity<Player> getPlayerById(@PathVariable @Min(1) int id) {
+	    Player player = service.getPlayerById(id);
+	    return ResponseEntity.ok(player);
+	}
+
 	@DeleteMapping("/delete/{id}")
     public ResponseEntity<String> deletePlayer(@PathVariable @Min(1) int id) {
         service.deletePlayer(id);
         return ResponseEntity.ok("Player deleted successfully");
+    }
+	@GetMapping("/more-than/{name}")
+    public List<Player> getPlayersMoreMatches(@PathVariable("name") String playerName) {
+        return service.getPlayersWithMoreMatchesThan(playerName);
     }
 	
 	@ExceptionHandler({ResourceNotFoundException.class})
 	public ResponseEntity<String> handlePlayerNotFound(ResourceNotFoundException ex){
 		return new ResponseEntity<>(ex.getMessage(), HttpStatus.BAD_REQUEST);
     }
+	
+
 }
