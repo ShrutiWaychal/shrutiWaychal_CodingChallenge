@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,6 +24,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Min;
 
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/api/players")
 public class PlayerRestController {
@@ -45,7 +47,7 @@ public class PlayerRestController {
 		return service.getAllPlayers();
 	}
 	
-	@GetMapping("/get/{id}")
+	@GetMapping("/getById/{id}")
 	public ResponseEntity<Player> getPlayerById(@PathVariable @Min(1) int id) {
 	    Player player = service.getPlayerById(id);
 	    return ResponseEntity.ok(player);

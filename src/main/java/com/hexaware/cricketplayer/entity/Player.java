@@ -43,12 +43,7 @@ public class Player {
     }
 
 
-	@Override
-	public String toString() {
-		return "Player [id=" + id + ", name=" + name + ", jerseyNumber=" + jerseyNumber + ", role=" + role
-				+ ", totalMatches=" + totalMatches + ", teamName=" + teamName + ", state=" + state + ", description="
-				+ description + "]";
-	}
+	
 	public int getId() {
 		return id;
 	}
@@ -97,4 +92,11 @@ public class Player {
 	public void setDescription(String description) {
 		this.description = description;
 	} 
+	
+	@Override
+	public String toString() {
+		return "Player [id=" + id + ", name=" + name + ", jerseyNumber=" + jerseyNumber + ", role=" + role
+				+ ", totalMatches=" + totalMatches + ", teamName=" + teamName + ", state=" + state + ", description="
+				+ description + "]";
+	}
 }
